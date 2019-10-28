@@ -1,0 +1,7 @@
+<div class="flex flex-wrap ">
+  <div class="w-full">
+    <h1 class="text-4xl text-center text-white">Tiempo total de experincia laboral</h1>
+  </div>
+  <%= render @users_ocupations %>
+  <%= button_to "Añadir tiempo de experiencia", new_users_ocupation_path, method: :get %>
+</div>

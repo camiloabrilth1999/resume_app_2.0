@@ -1,0 +1,91 @@
+<%= form_for(@employments, url: employments_path, html: {class: "w-full max-w-xll"}) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+      <%= f.label :type_enterprise, 'Sector de la empresa', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.select(:type_enterprise, options_for_select([["Selecciona una opcion", ""], "Publico", "Privado"]), {}, { :class => 'appearance-none
+      block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' }) %>
+    </div>
+    <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+      <%= f.label :name_enterprise, 'Nombre de la empresa:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :name_enterprise, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+    <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+      <%= f.label :email_enterprise, 'Email de la empresa:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.email_field :email_enterprise, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+
+    <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+      <%= f.label :number_phone_enterprise, 'Numero de contacto de la empresa:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :number_phone_enterprise, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :address_enterprise, 'Direccion de la empresa', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :address_enterprise, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :charge_company, 'Cargo en la empresa:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :charge_company, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :dependency, 'Dependencia en la empresa:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :dependency, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :entry_date, 'Fecha de ingreso en la empresa', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.date_field :entry_date, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :retirement_date, 'Fecha de retiro en la empresa:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.date_field :retirement_date, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :current_job, '¿Es su trabajo actual?:', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.select(:current_job, options_for_select([["Selecciona una opcion", ""], "Si", "No"]), {}, { :class => 'appearance-none
+      block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' }) %>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-2">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= label :country, 'País de la empresa', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %><br />
+      <div class="relative">
+        <%= collection_select(:country, :country_id, Country.all, :id, :name, {:prompt=>true}, {:class=>'block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'}) %>
+      </div>
+    </div>
+
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= label :state_id, 'Departamento de la empresa', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %><br />
+      <div class="relative">
+        <%= grouped_collection_select(:department, :country_id, Country.all, :departments, :name, :id, :name, {:prompt=>true}, {:class=>'block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'}) %>
+      </div>
+    </div>
+
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :city_enterprise_id, 'Ciudad de la empresa', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %><br />
+      <div class="relative">
+        <%= f.grouped_collection_select(:city_enterprise_id, Department.all, :cities, :name, :id, :name, {:prompt=>true}, {:class=>'block w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'}) %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit "Crear estudio", class: "btn btn-primary" %>
+<% end %>

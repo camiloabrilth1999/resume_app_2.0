@@ -1,0 +1,104 @@
+<div class="flex flex-wrap -mx-3 mb-6">
+  <table class="text-left m-4 w-full" style="border-collapse:collapse">
+  <tbody>
+      <tr class="hover:bg-blue-lightest">
+          <th class="py-4 px-6 border-b border-grey-light text-center text-white">Nombre(s) </th>
+          <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.name %></td>
+      </tr>
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Primer apellido </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.first_surname %></td>
+      </tr>
+
+      <% if !@user.second_surname.empty?  %>
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white text-white">Segundo apellido </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white text-white"><%= @user.second_surname %></td>
+      </tr>
+      <% end %>
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Genero</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.gender.description %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Nacionalidad</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @nacionality.description %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Pais de nacionalidad</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.department.country.name %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Tipo de identificador </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= NationalIdentifierType.find(@user.national_identifier_type_id).description %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Numero de identificacion </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.number_national_identifier %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Tipo de libreta militar </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @military_card.description %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Numero de libreta militar </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.number_military_card %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Numero de libreta militar </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.dm_military_card %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Fecha de nacimiento </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.birth_date %></td>
+      </tr>
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Ciudad de nacimiento</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.name %></td>
+      </tr>
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Departamento de nacimiento</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.department.name %></td>
+      </tr>
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">País de nacimiento</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.department.country.name %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Ciudad donde reside</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city_residence.name %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Departamento donde reside</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city_residence.department.name %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">País donde reside</th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city_residence.department.country.name %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Direccion de residencia </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.address %></td>
+      </tr>
+
+      <tr class="hover:bg-blue-lightest">
+        <th class="py-4 px-6 border-b border-grey-light text-center text-white">Correo electronico </th>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @user.email %></td>
+      </tr>
+  </tbody>
+  </table>
+</div>
+
+<%= button_to "Actualizar datos personales", edit_user_registration_path, method: :get %>

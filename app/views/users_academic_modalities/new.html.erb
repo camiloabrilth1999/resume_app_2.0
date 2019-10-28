@@ -1,0 +1,43 @@
+<%= form_for(@users_academic_modalities, url: users_academic_modalities_path, html: {class: "w-full max-w-xll"}) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= label :academic_modality_id, 'Seleccione modalidad academica', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.collection_select(:academic_modality_id, AcademicModality.all, :id, :description,
+         {:prompt=>true}, {:class=>'appearance-none block w-full bg-gray-200 text-gray-700 border
+         rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'}) %>
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :number_approved_semesters, 'Numero de semestres aprovados', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :number_approved_semesters, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :graduate, 'Completo sus estudios (Si/No)', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.select(:graduate, options_for_select([["Selecciona una opcion", ""], "Si", "No"]), {}, { :class => 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' }) %>
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :name_studies, 'Nombre de sus estudios', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :name_studies, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :number_professional_card, 'Numero de tarjeta profesional', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :number_professional_card, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label :date_completation_studie, 'Fecha en la que termino', :class => "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.date_field :date_completation_studie, class: 'appearance-none block w-full bg-gray-200 text-gray-700 border
+      rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white' %>
+    </div>
+  </div>
+
+  <%= f.submit "Crear estudio", class: "btn btn-primary" %>
+<% end %>

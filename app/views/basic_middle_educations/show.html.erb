@@ -1,0 +1,9 @@
+<div class="flex flex-wrap ">
+  <div class="w-full">
+    <h1 class="text-4xl text-center text-white">Educacion basica y media</h1>
+  </div>
+  <%= render @basic_middle_educations %>
+  <% if @basic_middle_educations.length == 0 %>
+  <%= button_to "Añadir estudios basicos", new_basic_middle_education_path, method: :get %>
+  <% end %>
+</div>

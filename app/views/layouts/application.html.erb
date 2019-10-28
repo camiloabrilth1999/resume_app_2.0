@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ResumeApp20</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="bg-black font-sans leading-normal tracking-normal">
+    <%= render 'layouts/header'%>
+    <div class="container w-full mx-auto pt-20">
+      <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+        <% if notice or alert != nil%>
+          <%= render 'layouts/alerts'%>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'layouts/footer'%>
+    <script type="text/javascript" data-turbolinks-eval=false>
+  		//Javascript to toggle the menu
+  		document.getElementById('nav-toggle').onclick = function(){
+  			document.getElementById("nav-content").classList.toggle("hidden");
+  		}
+  	</script>
+  </body>
+</html>

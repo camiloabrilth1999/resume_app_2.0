@@ -1,0 +1,97 @@
+<div class="flex flex-wrap w-full mb-8">
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Sector de la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.type_enterprise %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Nombre de la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.name_enterprise %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Email de la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.email_enterprise %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Numero de telefono de la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.number_phone_enterprise %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Direccion de la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.address_enterprise %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Ciudad donde se ubica la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= City.find(employment.city_enterprise_id).name %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Cargo en la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.charge_company %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Dependencia en la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.dependency %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Fecha de ingreso en la empresa:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.entry_date %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Fecha de retiro en la empresa:</p>
+    </div>
+
+    <div class="w-1/2">
+      <% if employment.retirement_date.blank? %>
+        <p class="text-white">Sigue activo</p>
+      <% else %>
+        <p class="text-white"><%= employment.retirement_date %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Es su trabajo actual:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= employment.current_job %></p>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,7 @@
+<div class="flex flex-wrap ">
+  <div class="w-full">
+    <h1 class="text-4xl text-center text-white">Experiencia laboral</h1>
+  </div>
+  <%= render @employments %>
+  <%= button_to "Añadir experiencias laborales", new_employment_path, method: :get %>
+</div>

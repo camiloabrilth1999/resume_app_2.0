@@ -1,0 +1,50 @@
+<div class="flex flex-wrap w-full studie-{#n} mb-8">
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Nombre de estudios:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= users_academic_modality.name_studies %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">No. semestres aprobados:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= users_academic_modality.number_approved_semesters %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Graduado:</p>
+    </div>
+    <div class="w-1/2">
+      <p class="text-white"><%= users_academic_modality.graduate %></p>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">Terminacion:</p>
+    </div>
+    <div class="w-1/2">
+      <% if users_academic_modality.date_completation_studie.blank? %>
+      <p class="text-white">No ha terminado el estudio</p>
+      <% else %>
+        <p class="text-white"><%= users_academic_modality.date_completation_studie %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full">
+    <div class="w-1/2">
+      <p class="text-white">No. Tarjeta profesional:</p>
+    </div>
+    <div class="w-1/2">
+      <% if users_academic_modality.number_professional_card.blank? %>
+        <p class="text-white">No ha terminado el estudio</p>
+      <% else %>
+        <p class="text-white"><%= users_academic_modality.number_professional_card %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
