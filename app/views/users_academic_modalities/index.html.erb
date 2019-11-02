@@ -1,0 +1,7 @@
+<div class="flex flex-wrap ">
+  <div class="w-full">
+    <h1 class="text-4xl text-center text-white">Estudios de educacion superior: </h1>
+  </div>
+  <%= render @academic_modalities %>
+  <%= button_to "Añadir estudios superiores", new_user_users_academic_modality_path, method: :get, class: "actions bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
+</div>

@@ -13,66 +13,49 @@
 
 	<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
 		<ul class="list-reset lg:flex justify-end flex-1 items-center">
+			<!--
 			<li class="mr-3">
-				<%= link_to root_path, :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Inicio</span>
-				<% end %>
+				<a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
 			</li>
+		-->
+
 			<% if user_signed_in?%>
 			<li class="mr-3">
-				<%= link_to user_path(current_user.id), :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Datos personales</span>
-				<% end %>
+				<%= link_to "Datos personales", user_path(current_user.id), class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
 			<li class="mr-3">
-				<%= link_to basic_middle_education_path(current_user.id), :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Datos de educacion basica</span>
-				<% end %>
+				<%= link_to "Datos de educacion basica", user_basic_middle_educations_path(current_user.id), class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
 			<li class="mr-3">
-				<%= link_to academic_modalities_path(current_user.id), :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Datos de educacion superior</span>
-				<% end %>
+				<%= link_to "Datos de educacion superior", user_users_academic_modalities_path(current_user.id), class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
 			<li class="mr-3">
-				<%= link_to users_idiom_path(current_user.id), :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Idiomas</span>
-				<% end %>
+				<%= link_to "Idiomas", user_users_idioms_path(current_user.id), class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
 			<li class="mr-3">
-				<%= link_to employment_path(current_user.id), :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Experiencias laborales</span>
-				<% end %>
+				<%= link_to "Experiencia laboral", user_employments_path(current_user.id), class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
 			<li class="mr-3">
-				<%= link_to users_ocupation_path(current_user.id), :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Tiempo de experiencias laborales</span>
-				<% end %>
+				<%= link_to "Tiempo de experiencia laboral", user_users_ocupations_path(current_user.id), class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
 			<li class="mr-3">
-				<%= link_to destroy_user_session_path, method: :delete, :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-					 <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Salir</span>
-				<% end %>
-			</li>
-			<% else%>
-			<li class="mr-3">
-				<%= link_to new_user_session_path, :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-						<i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Inicia sesion</span>
-				<% end %>
+				<%= link_to "Salir", destroy_user_session_path, method: :delete, class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
 
+			<% else %>
 			<li class="mr-3">
-				<%= link_to new_user_registration_path, :class => "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" do %>
-						<i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Registrate</span>
-				<% end %>
+				<%= link_to "Iniciar sesion", new_user_session_path, class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
 			</li>
-			<% end%>
+			<li class="mr-3">
+				<%= link_to "Registrate", new_user_registration_path, class: "inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" %>
+			</li>
+			<% end %>
 		</ul>
 	</div>
 </nav>

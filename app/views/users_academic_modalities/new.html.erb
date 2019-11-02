@@ -1,4 +1,4 @@
-<%= form_for(@users_academic_modalities, url: users_academic_modalities_path, html: {class: "w-full max-w-xll"}) do |f| %>
+<%= form_for @users_academic_modalities, url: {action: "create"}, html: {class: "w-full max-w-xll"} do |f| %>
 
   <%= render 'shared/error_messages', object: f.object %>
 
@@ -39,5 +39,5 @@
     </div>
   </div>
 
-  <%= f.submit "Crear estudio", class: "btn btn-primary" %>
+  <%= f.submit "Crear estudio", class: "actions bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
 <% end %>

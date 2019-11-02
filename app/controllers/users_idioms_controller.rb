@@ -1,24 +1,26 @@
 class UsersIdiomsController < ApplicationController
 
+  def index
+    if params[:user_id]
+       @users_idioms = User.find(params[:user_id]).users_idioms
+    else
+       @users_idioms = UsersIdiom.all
+    end
+  end
+
   def new
-    @user = User.find(current_user.id)
     @users_idioms = UsersIdiom.new
   end
 
   def create
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @users_idioms = UsersIdiom.new(users_idiom_params)
     @users_idioms.user_id = @user.id
     if @users_idioms.save
-      redirect_to root_url
+      redirect_to user_users_idioms_url
     else
       render 'new'
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @users_idioms = @user.users_idioms
   end
 
   def users_idiom_params

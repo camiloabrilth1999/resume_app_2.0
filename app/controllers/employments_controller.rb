@@ -1,24 +1,26 @@
 class EmploymentsController < ApplicationController
 
+  def index
+    if params[:user_id]
+       @employments = User.find(params[:user_id]).employments.order(current_job: :desc)
+    else
+       @employments = Employment.all
+    end
+  end
+
   def new
-    @user = User.find(current_user.id)
     @employments = Employment.new
   end
 
   def create
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @employments = Employment.new(employments_params)
     @employments.user_id = @user.id
     if @employments.save
-      redirect_to root_url
+      redirect_to user_employments_url
     else
       render 'new'
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @employments = @user.employments.order(current_job: :desc)
   end
 
   def employments_params

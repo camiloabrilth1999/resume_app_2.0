@@ -23,12 +23,12 @@
 
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Nacionalidad</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @nacionality.description %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= NacionalityType.find(@user.nacionality_type_id).description %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Pais de nacionalidad</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.department.country.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_birth_id).department.country.name %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
@@ -43,7 +43,7 @@
 
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Tipo de libreta militar </th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @military_card.description %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= MilitaryCardType.find(@user.military_card_type_id).description %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
@@ -62,30 +62,30 @@
       </tr>
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Ciudad de nacimiento</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_birth_id).name %></td>
       </tr>
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Departamento de nacimiento</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.department.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_birth_id).department.name %></td>
       </tr>
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">País de nacimiento</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city.department.country.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_birth_id).department.country.name %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Ciudad donde reside</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city_residence.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_residence_id).name %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">Departamento donde reside</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city_residence.department.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_residence_id).department.name %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
         <th class="py-4 px-6 border-b border-grey-light text-center text-white">País donde reside</th>
-        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= @city_residence.department.country.name %></td>
+        <td class="py-4 px-6 border-b border-grey-light text-center text-white"><%= City.find(@user.city_residence_id).department.country.name %></td>
       </tr>
 
       <tr class="hover:bg-blue-lightest">
@@ -101,4 +101,4 @@
   </table>
 </div>
 
-<%= button_to "Actualizar datos personales", edit_user_registration_path, method: :get %>
+<%= button_to "Actualizar datos personales", edit_user_registration_path, method: :get, class: "actions bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>

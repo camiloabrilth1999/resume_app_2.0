@@ -1,24 +1,28 @@
 class BasicMiddleEducationsController < ApplicationController
 
+  def index
+    if params[:user_id]
+       @basic_middle_educations = User.find(params[:user_id]).basic_middle_educations
+       authorize @basic_middle_educations
+    else
+       @basic_middle_educations = BasicMiddleEducation.all
+       authorize @basic_middle_educations
+    end
+  end
+
   def new
-    @user = User.find(current_user.id)
     @basic_middle_educations = BasicMiddleEducation.new
   end
 
   def create
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @basic_middle_educations = BasicMiddleEducation.new(basic_middle_education_params)
     @basic_middle_educations.user_id = @user.id
     if @basic_middle_educations.save
-      redirect_to root_url
+      redirect_to user_basic_middle_educations_url
     else
       render 'new'
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @basic_middle_educations = @user.basic_middle_educations
   end
 
   def basic_middle_education_params

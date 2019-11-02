@@ -3,12 +3,12 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   after_create :assign_default_role
-  has_many :users_ocupations
-  has_many :users_academic_modalities
-  has_many :academic_modalities, through: :users_academic_modalities
-  has_many :users_idioms
-  has_many :basic_middle_educations
-  has_many :employments
+  has_many :users_ocupations, dependent: :destroy
+  has_many :users_academic_modalities, dependent: :destroy
+  has_many :academic_modalities, through: :users_academic_modalities, dependent: :destroy
+  has_many :users_idioms, dependent: :destroy
+  has_many :basic_middle_educations, dependent: :destroy
+  has_many :employments, dependent: :destroy
   belongs_to :nacionality_type
   belongs_to :city, optional: true
   belongs_to :military_card_type
@@ -17,7 +17,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :first_surname, presence: true
-  validates :second_surname, presence: true
   validates :number_phone, presence: true
   validates :birth_date, presence: true
   validates :country_nationality, presence: true

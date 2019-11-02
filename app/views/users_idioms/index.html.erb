@@ -1,0 +1,7 @@
+<div class="flex flex-wrap ">
+  <div class="w-full">
+    <h1 class="text-4xl text-center text-white">Idiomas: </h1>
+  </div>
+  <%= render @users_idioms %>
+  <%= button_to "Añadir idiomas", new_user_users_idiom_path, method: :get, class: "actions bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
+</div>

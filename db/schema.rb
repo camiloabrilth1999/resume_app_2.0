@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_113817) do
+ActiveRecord::Schema.define(version: 2019_10_31_213732) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "academic_modalities", force: :cascade do |t|
     t.string "description"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
     t.string "last_degree"
     t.string "degree_obtained"
     t.date "date_degree"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_basic_middle_educations_on_user_id"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.integer "department_id"
+    t.bigint "department_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["department_id"], name: "index_cities_on_department_id"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
-    t.integer "country_id"
+    t.bigint "country_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["country_id"], name: "index_departments_on_country_id"
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
     t.string "email_enterprise"
     t.string "number_phone_enterprise"
     t.string "address_enterprise"
-    t.integer "city_enterprise_id"
-    t.integer "user_id"
+    t.bigint "city_enterprise_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_enterprise_id"], name: "index_employments_on_city_enterprise_id"
@@ -99,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
@@ -115,12 +118,12 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "city_birth_id"
-    t.integer "city_residence_id"
-    t.integer "military_card_type_id"
-    t.integer "national_identifier_type_id"
-    t.integer "gender_id"
-    t.integer "nacionality_type_id"
+    t.bigint "city_birth_id"
+    t.bigint "city_residence_id"
+    t.bigint "military_card_type_id"
+    t.bigint "national_identifier_type_id"
+    t.bigint "gender_id"
+    t.bigint "nacionality_type_id"
     t.string "name"
     t.string "first_surname"
     t.string "second_surname"
@@ -142,8 +145,8 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
   end
 
   create_table "users_academic_modalities", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "academic_modality_id"
+    t.bigint "user_id"
+    t.bigint "academic_modality_id"
     t.integer "number_approved_semesters"
     t.string "graduate"
     t.string "name_studies"
@@ -156,7 +159,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
   end
 
   create_table "users_idioms", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "name_idiom"
     t.string "to_speak"
     t.string "to_read"
@@ -167,7 +170,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
   end
 
   create_table "users_ocupations", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "description"
     t.integer "years"
     t.integer "months"
@@ -177,8 +180,8 @@ ActiveRecord::Schema.define(version: 2019_10_28_113817) do
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
+    t.bigint "user_id"
+    t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"
